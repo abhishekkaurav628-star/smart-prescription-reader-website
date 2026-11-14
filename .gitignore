@@ -1,0 +1,9 @@
+node_modules
+.next
+.env
+.env.local
+.env.*
+!.env.example
+.ai-config.json
+*.tsbuildinfo
+next-env.d.ts

@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Lato", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --color-navy-50: #f4f6fd;
+  --color-navy-100: #e8ecfa;
+  --color-navy-200: #cfdbf7;
+  --color-navy-300: #a9bbee;
+  --color-navy-400: #7a92dd;
+  --color-navy-500: #4f6bc9;
+  --color-navy-600: #3a52ab;
+  --color-navy-700: #2d4090;
+  --color-navy-800: #253376;
+  --color-navy-900: #1f2a63;
+  --color-navy-950: #141b45;
+
+  --animate-slide-up: slide-up 0.35s ease-out both;
+  --animate-fade-in: fade-in 0.4s ease-out both;
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-navy-50);
+    color: #0f172a;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-navy-500);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .btn,
+  .btn-primary,
+  .btn-accent,
+  .btn-ghost,
+  .btn-danger {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-navy-900 text-white shadow-sm hover:bg-navy-800 active:bg-navy-950;
+  }
+  .btn-accent {
+    @apply bg-teal-600 text-white shadow-sm hover:bg-teal-700 active:bg-teal-800;
+  }
+  .btn-ghost {
+    @apply border border-navy-200 bg-white text-navy-900 hover:bg-navy-50;
+  }
+  .btn-danger {
+    @apply border border-rose-200 bg-white text-rose-700 hover:bg-rose-50;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+  .input {
+    @apply w-full rounded-xl border border-navy-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-navy-500 focus:ring-4 focus:ring-navy-100;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-600;
+  }
+  .card {
+    @apply rounded-2xl border border-navy-100 bg-white shadow-[0_1px_2px_rgba(31,42,99,0.04),0_8px_24px_-12px_rgba(31,42,99,0.12)];
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+}
